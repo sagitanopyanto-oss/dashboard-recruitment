@@ -112,3 +112,12 @@ export const departmentData = [
   { name: 'Analytics',   hires: 10, openings: 2 },
   { name: 'HR',          hires: 5,  openings: 2 },
 ];
+
+export const costHiringData = [
+  { month: 'Aug', cost: 12500000, hires: 8 },
+  { month: 'Sep', cost: 18200000, hires: 12 },
+  { month: 'Oct', cost: 15000000, hires: 10 },
+  { month: 'Nov', cost: 21000000, hires: 14 },
+  { month: 'Dec', cost: 16800000, hires: 11 },
+  { month: 'Jan', cost: 24500000, hires: 16 },
+];
