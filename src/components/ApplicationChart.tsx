@@ -1,5 +1,5 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, LineChart, Line } from 'recharts';
-import { monthlyApplications, departmentData } from '../data/mockData';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, LineChart, Line, AreaChart, Area } from 'recharts';
+import { monthlyApplications, departmentData, costHiringData } from '../data/mockData';
 
 export function ApplicationChart() {
   return (
@@ -54,6 +54,45 @@ export function DepartmentChart() {
           <Line type="monotone" dataKey="hires" name="Diterima" stroke="#6366f1" strokeWidth={3} dot={{ fill: '#6366f1', r: 5 }} />
           <Line type="monotone" dataKey="openings" name="Lowongan" stroke="#f59e0b" strokeWidth={3} dot={{ fill: '#f59e0b', r: 5 }} />
         </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+export function CostHiringChart() {
+  const formatRupiahSingkat = (value: number) => {
+    return `Rp ${(value / 1000000).toFixed(0)}Jt`;
+  };
+
+  return (
+    <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+      <div className="mb-6">
+        <h3 className="text-lg font-bold text-slate-800">Biaya Rekrutmen (Cost Hiring)</h3>
+        <p className="text-sm text-slate-500 mt-1">Total pengeluaran biaya hiring per bulan</p>
+      </div>
+      <ResponsiveContainer width="100%" height={300}>
+        <AreaChart data={costHiringData}>
+          <defs>
+            <linearGradient id="colorCost" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#10b981" stopOpacity={0.2}/>
+              <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+            </linearGradient>
+          </defs>
+          <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+          <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: '#94a3b8', fontSize: 12 }} />
+          <YAxis axisLine={false} tickLine={false} tick={{ fill: '#94a3b8', fontSize: 12 }} tickFormatter={formatRupiahSingkat} />
+          <Tooltip
+            formatter={(value: any) => [`Rp ${Number(value).toLocaleString('id-ID')}`, 'Biaya Hiring']}
+            contentStyle={{
+              backgroundColor: '#fff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+            }}
+          />
+          <Legend />
+          <Area type="monotone" dataKey="cost" name="Total Biaya (Rp)" stroke="#10b981" fillOpacity={1} fill="url(#colorCost)" strokeWidth={3} />
+        </AreaChart>
       </ResponsiveContainer>
     </div>
   );
