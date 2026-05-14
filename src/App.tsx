@@ -5,7 +5,7 @@ import { PipelineChart } from './components/PipelineChart';
 import { CandidateTable } from './components/CandidateTable';
 import { JobListings } from './components/JobListings';
 import { InterviewSchedule } from './components/InterviewSchedule';
-import { ApplicationChart, DepartmentChart } from './components/ApplicationChart';
+import { ApplicationChart, DepartmentChart, CostHiringChart } from './components/ApplicationChart';
 import { SLAInfo } from './components/SLAInfo';
 import { ApplicationForm } from './components/ApplicationForm';
 import { AdminAccounts } from './components/AdminAccounts';
@@ -115,7 +115,7 @@ export function App() {
       </button>
 
       {/* Sidebar */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block shrink-0">
         <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
 
@@ -265,6 +265,7 @@ export function App() {
               </div>
               <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 <DepartmentChart />
+                <CostHiringChart />
               </div>
               <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
                 <div className="p-6 border-b border-slate-100">
