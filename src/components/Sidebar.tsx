@@ -26,7 +26,7 @@ export function Sidebar({ activeTab, onTabChange }: { activeTab: string; onTabCh
   const { isAdmin, currentAdmin, canAccessSettings, logout } = useRecruitment();
 
   return (
-    <aside className={`${collapsed ? 'w-20' : 'w-64'} bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col transition-all duration-300 relative min-h-screen`}>
+    <aside className={`${collapsed ? 'w-20' : 'w-64'} bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col transition-all duration-300 sticky top-0 h-screen shrink-0 z-40`}>
       {/* Logo */}
       <div className="p-6 flex items-center gap-3 border-b border-slate-700/50">
         <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center font-bold text-lg shrink-0 shadow-lg shadow-indigo-500/30">
